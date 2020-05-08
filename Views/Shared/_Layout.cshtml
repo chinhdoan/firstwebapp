@@ -4,32 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <meta http-equiv="X-UA-compatible" content="ie=edge">
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/style.css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <header>
+        <div class="top">
+            <div class="logo-container">
+                <a href="@Url.Action("Index", "Home")" class="logo"><img alt="" src="~/Images/evncpc.png" height="100" width="170"></a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <nav>
+                <ul class="menu">
+                    <li>@Html.ActionLink("Giới thiệu", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Dịch vụ trực tuyến", "About", "Home")</li>
+                    <li>@Html.ActionLink("Tra cứu", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Thông tin hỗ trợ", "", "")</li>
+                    <li>@Html.ActionLink("Tin mới", "", "")</li>
+                    <li>@Html.ActionLink("Liên hệ", "", "")</li>
                 </ul>
-                <ul class="nav navbar-btn navbar-right btn-default">
-                    <li>@Html.ActionLink("Register", "AddOrEdit", "User")</li>
-                </ul>
-            </div>
+            </nav>
+            <div class="log">
+                    <button class="signup-btn">@Html.ActionLink("Register", "Register", "User")</button>
+                    <button class="login-btn">@Html.ActionLink("Log-in", "AddOrEdit", "User")</button>
+                </div>
         </div>
-    </div>
+    </header>
     <div class="container body-content">
         @RenderBody()
         <hr />

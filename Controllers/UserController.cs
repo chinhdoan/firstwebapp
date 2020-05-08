@@ -13,7 +13,7 @@ namespace Evncpc.Controllers
     public class UserController : Controller
     {
         // GET: User
-        public ActionResult AddOrEdit(int id=0)
+        public ActionResult Register(int id=0)
         {
             user userModel = new user();
             return View(userModel);
@@ -21,7 +21,7 @@ namespace Evncpc.Controllers
 
         [HttpPost]
         
-        public ActionResult AddOrEdit(user userModel)
+        public ActionResult Register(user userModel)
         {
             using (DbModels dbmodel = new DbModels())
             {
@@ -30,7 +30,9 @@ namespace Evncpc.Controllers
             }
             ModelState.Clear();
             ViewBag.SuccessMessage = "Registion successfull";
-            return View("AddOrEdit", new user());
+            return View("Register", new user());
         }
+
+        
     }
 }

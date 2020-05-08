@@ -15,11 +15,12 @@ namespace Evncpc.Models
     using System.ComponentModel.DataAnnotations;
     public partial class user
     {
+
         public int userid { get; set; }
         [Required(ErrorMessage ="This information is required")]
         public string username { get; set; }
         [Required(ErrorMessage = "This information is required")]
-        [DisplayName("Confirm Password")]
+        [DisplayName("Password")]
         [DataType(DataType.Password)]
         public string pass { get; set; }
         [DisplayName("Confirm Password")]
