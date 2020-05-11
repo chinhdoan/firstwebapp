@@ -23,6 +23,7 @@ namespace Evncpc.Models
         [DisplayName("Password")]
         [DataType(DataType.Password)]
         public string pass { get; set; }
+        [DataType(DataType.Password)]
         [DisplayName("Confirm Password")]
         [Compare("pass")]
         public string confirmpassword { get; set; }
