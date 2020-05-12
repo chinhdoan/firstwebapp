@@ -5,37 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <meta http-equiv="X-UA-compatible" content="ie=edge">
-    @Styles.Render("~/Content/bootstrap.css")
-    @Styles.Render("~/Content/style.css")
+    @Styles.Render("~/Content/owl.theme.default.min.css")
+    @Styles.Render("~/Content/font-awesome.csss")
+    @Styles.Render("~/Content/owl.carousel.cs")
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/templatemo-style.css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
     <header>
-        <div class="top">
-            <div class="logo-container">
-                <a href="@Url.Action("Index", "Home")" class="logo"><img alt="" src="~/Images/evncpc.png" height="100" width="170"></a>
+        <!-- PRE LOADER -->
+        <section class="preloader">
+            <div class="spinner">               
+                <span class="spinner-rotate"></span>
+
             </div>
-            <nav>
-                <ul class="menu">
-                    <li>@Html.ActionLink("Giới thiệu", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Dịch vụ trực tuyến", "About", "Home")</li>
-                    <li>@Html.ActionLink("Tra cứu", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Thông tin hỗ trợ", "", "")</li>
-                    <li>@Html.ActionLink("Tin mới", "", "")</li>
-                    <li>@Html.ActionLink("Liên hệ", "", "")</li>
-                </ul>
-            </nav>
-            <div class="log">
-                    <button class="signup-btn">@Html.ActionLink("Register", "Register", "User")</button>
-                    <button class="login-btn">@Html.ActionLink("Log-in", "Login", "User")</button>
+        </section>
+
+
+        <!-- MENU -->
+        <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                        <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="#" class="navbar-header"><img src="~/images/evncpc.png" alt="Logo" style="width:110px"></a>
+                   
                 </div>
-        </div>
+
+                <!-- MENU LINKS -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                        <li><a href="@Url.Action("Index","Home")" class="smoothScroll">Home</a></li>
+                        <li><a href="@Url.Action("About","Home")" class="smoothScroll">About</a></li>
+                        <li><a href="#team" class="smoothScroll">Our Teachers</a></li>
+                        <li><a href="#courses" class="smoothScroll">Courses</a></li>
+                        <li><a href="#testimonial" class="smoothScroll">Reviews</a></li>
+                        <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (Session["username"] == null)
+                        {
+                            <li class="signup-btn">@Html.ActionLink("Register", "Register", "User")</li>
+                            <li class="login-btn">@Html.ActionLink("Log-in", "Login", "User")</li>
+                        }
+                        else
+                        {
+                            <li style="margin-top:12px;">
+                                <span style="pointer-events:none;text-transform:uppercase;color:mistyrose" class="glyphicon glyphicon-globe">@Html.ActionLink("" + Session["username"], "Index", "Home")</span>
+                            </li>
+                            <li class="login-btn">@Html.ActionLink("Log out", "Logout", "User")</li>
+                          
+                        }
+                    </ul>
+                </div>
+
+            </div>
+        </section>
     </header>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="footer-info">
+                            <div class="section-title">
+                                <h2>Headquarter</h2>
+                            </div>
+                            <address>
+                                <p>1800 dapibus a tortor pretium,<br> Integer nisl dui, ABC 12000</p>
+                            </address>
+
+                            <ul class="social-icon">
+                                <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                                <li><a href="#" class="fa fa-twitter"></a></li>
+                                <li><a href="#" class="fa fa-instagram"></a></li>
+                            </ul>
+
+                            <div class="copyright-text">
+                                <p>Copyright &copy; 2019 Company Name</p>
+
+                                <p>Design: TemplateMo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="footer-info">
+                            <div class="section-title">
+                                <h2>Contact Info</h2>
+                            </div>
+                            <address>
+                                <p>+65 2244 1100, +66 1800 1100</p>
+                                <p><a href="mailto:youremail.co">hello@youremail.co</a></p>
+                            </address>
+
+                            <div class="footer_menu">
+                                <h2>Quick Links</h2>
+                                <ul>
+                                    <li><a href="#">Career</a></li>
+                                    <li><a href="#">Investor</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="#">Refund Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="footer-info newsletter-form">
+                            <div class="section-title">
+                                <h2>Newsletter Signup</h2>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <form action="#" method="get">
+                                        <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required="">
+                                        <input type="submit" class="form-control" name="submit" id="form-submit" value="Send me">
+                                    </form>
+                                    <span><sup>*</sup> Please note - we do not spam your email.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </footer>
     </div>
 

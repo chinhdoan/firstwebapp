@@ -20,11 +20,18 @@ namespace Evncpc
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                        "~/Scripts/custom.js",
+                        "~/Scripts/jquery.js",
+                        "~/ Scripts /smoothscroll.js",
+                        "~/ Scripts /owl/.carousel.min.js",
+                         "~/Scripts/bootstrap.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                       "~/Content/style.css",
-                      "~/Content/bootstrap.css",
+                       "~/Content/font-awesome.css",
+                        "~/Content/owl.carousel.css",
+                        "~/Content/owl.theme.default.min.css",
+                      "~/Content/templatemo-style.css",
+                      "~/Content/bootstrap.min.css",
                       "~/Content/site.css"));
         }
     }

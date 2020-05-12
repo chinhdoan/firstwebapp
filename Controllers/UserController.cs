@@ -47,24 +47,25 @@ namespace Evncpc.Controllers
         {
             using (DbModels dbmodel = new DbModels())
             {
-                if (ModelState.IsValid)
+                var check = dbmodel.users.Where(m => m.username == objloginModel.username && m.pass == objloginModel.pass).FirstOrDefault();
+                if (check == null)
                 {
-                    var check = dbmodel.users.Where(m => m.username == objloginModel.username && m.pass == objloginModel.pass).FirstOrDefault();
-                    if ( check != null)
-                    {
-                        ViewBag.SuccessMessage = "Login failed";
-                        ModelState.AddModelError("Error", "username and pass does not matching");
-                        return View();
-                    }
-                    else
-                    {
-                        ViewBag.SuccessMessage = "Login successfull";
-                        RedirectToAction("Index", "Home", "Home");
-                    }
-
+                    ViewBag.SuccessMessage = "Login failed";
+                    ModelState.AddModelError("Error", "username and pass does not matching");
+                    return View();
                 }
+                else
+                {
+                    Session["username"] = check.username;
+                    ViewBag.SuccessMessage = "Login successfull";
+                    return RedirectToAction("Index", "Home");
+                }    
             }
-            return View();
+        }
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "home");
         }
     }
 }

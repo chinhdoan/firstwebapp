@@ -6,6 +6,7 @@
 }
 
 body {
+
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -20,9 +21,7 @@ header {
     height: 100px;
     align-items: center;
 }
-h1{
-    font-size:50px;
-}
+
 .logo {
     position:center;
     background-repeat: no-repeat;
@@ -45,9 +44,9 @@ nav {
     color: white;
 }
 
-    nav a {
-        color: white;
-    }
+nav a {
+    color: white;
+}
 
 .menu {
     margin-top: 10px;
@@ -57,6 +56,14 @@ nav {
 }
 
 .log {
+    flex: 1;
+    margin-left: 20px;
+    justify-content: flex-end;
+}
+span{
+   
+}
+.logout {
     flex: 1;
     margin-left: 20px;
     justify-content: flex-end;
@@ -91,7 +98,9 @@ nav {
 .signup-btn:hover {
     background-color: red;
 }
-
+welcome-btn:hover {
+    color:black;
+}
 .login-btn:hover {
     background-color: red;
 }

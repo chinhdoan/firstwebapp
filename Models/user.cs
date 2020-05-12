@@ -14,8 +14,7 @@ namespace Evncpc.Models
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     public partial class user
-    {
-
+    { 
         public int userid { get; set; }
         [Required(ErrorMessage ="This information is required")]
         public string username { get; set; }
