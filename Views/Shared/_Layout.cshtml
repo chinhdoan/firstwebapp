@@ -4,20 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <meta http-equiv="X-UA-compatible" content="ie=edge">
-    @Styles.Render("~/Content/owl.theme.default.min.css")
-    @Styles.Render("~/Content/font-awesome.csss")
-    @Styles.Render("~/Content/owl.carousel.cs")
-    @Styles.Render("~/Content/bootstrap.min.css")
-    @Styles.Render("~/Content/templatemo-style.css")
+    <meta http-equiv="X-UA-compatible" content="ie=edge" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+    <link href="~/Content/login.css" rel="stylesheet" type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 
 </head>
 <body>
     <header>
         <!-- PRE LOADER -->
         <section class="preloader">
-            <div class="spinner">               
+            <div class="spinner">
                 <span class="spinner-rotate"></span>
 
             </div>
@@ -37,7 +38,7 @@
 
                     <!-- lOGO TEXT HERE -->
                     <a href="#" class="navbar-header"><img src="~/images/evncpc.png" alt="Logo" style="width:110px"></a>
-                   
+
                 </div>
 
                 <!-- MENU LINKS -->
@@ -55,7 +56,7 @@
                         @if (Session["username"] == null)
                         {
                             <li class="signup-btn">@Html.ActionLink("Register", "Register", "User")</li>
-                            <li class="login-btn">@Html.ActionLink("Log-in", "Login", "User")</li>
+                            <li class="signin-btn">@Html.ActionLink("Log-in", "Login", "User")</li>
                         }
                         else
                         {
@@ -63,7 +64,7 @@
                                 <span style="pointer-events:none;text-transform:uppercase;color:mistyrose" class="glyphicon glyphicon-globe">@Html.ActionLink("" + Session["username"], "Index", "Home")</span>
                             </li>
                             <li class="login-btn">@Html.ActionLink("Log out", "Logout", "User")</li>
-                          
+
                         }
                     </ul>
                 </div>

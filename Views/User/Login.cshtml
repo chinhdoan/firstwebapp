@@ -3,37 +3,41 @@
     ViewBag.Title = "Login";
 }
 
+
 <h2>Login</h2>
+
+
 @using (Html.BeginForm("Login", "User", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+    <div class="login">
+        <form class="login-form" action="#">
+            <div class="input-group input-group-lg">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user" /></div>
+                <input type="email" class="form-control" id="user-name" placeholder="username" required tabindex="1" />
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-lock" /></div>
+                <input type="password" class="form-control" id="password" placeholder="Password" required tabindex="2" />
+            </div>
+            <input type="submit" id="login" class="btn btn-primary fa-lg" value="Sign in" tabindex="3" />
+            <div class="login-bar">
+                <input type="checkbox" id="stay-signed-in" tabindex="4" /><label for="stay-signed-in">Keep me signed in</label>
+                <a href="#" class="pull-right">Forgotten your password?</a>
+            </div>
+        </form>
+
+        <div class="social">
+            <div class="social-inner">
+                <a class="fa fa-2x fa fa-users btn btn-danger"></a>
+                <a class="fa fa-2x fa-twitter btn btn-info"></a>
+                <a class="fa fa-2x fa-facebook btn btn-primary"></a>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pass, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.pass, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.pass, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Login" class="btn btn-default" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <label class="label-success">@ViewBag.SuccessMessage</label>
+        <div class="register">
+            <div class="register-inner">
+                <a href="#" class="btn btn-success">Create an Account</a>
             </div>
         </div>
     </div>
@@ -41,7 +45,6 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

@@ -298,13 +298,12 @@ section {
             display: inline-block;
             margin-right: 5px;
         }
-
-    .custom-navbar .nav li a {
-        line-height: 40px;
-        color: #575757;
-        padding-right: 22px;
-        padding-left: 22px;
-    }
+        .custom-navbar .nav li a {
+            line-height: 40px;
+            color: #575757;
+            padding-right: 22px;
+            padding-left: 22px;
+        }
 
     .custom-navbar .navbar-nav > li > a:hover,
     .custom-navbar .navbar-nav > li > a:focus {
@@ -334,7 +333,6 @@ section {
             background: #252525;
             border-color: transparent;
         }
-
 
 
 /*---------------------------------------

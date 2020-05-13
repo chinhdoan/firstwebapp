@@ -24,15 +24,18 @@ namespace Evncpc
                         "~/Scripts/jquery.js",
                         "~/ Scripts /smoothscroll.js",
                         "~/ Scripts /owl/.carousel.min.js",
-                         "~/Scripts/bootstrap.min.js"));
+                         "~/Scripts/bootstrap.min.js",
+                         "~/Scripts/login.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                       "~/Content/font-awesome.css",
+                        "~/Content/login.css",
+                        "~/Content/fontawesome.min.css",
+                        "~/Content/font-awesome.css",
                         "~/Content/owl.carousel.css",
                         "~/Content/owl.theme.default.min.css",
-                      "~/Content/templatemo-style.css",
-                      "~/Content/bootstrap.min.css",
-                      "~/Content/site.css"));
+                        "~/Content/templatemo-style.css",
+                        "~/Content/bootstrap.min.css"    
+                      ));
         }
     }
 }
