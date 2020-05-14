@@ -28,14 +28,13 @@ namespace Evncpc
                          "~/Scripts/login.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                        "~/Content/login.css",
-                        "~/Content/fontawesome.min.css",
-                        "~/Content/font-awesome.css",
+                        "~/Content/bootstrap.min.css",
+                        "~/Content/font-awesome.min.css",
                         "~/Content/owl.carousel.css",
                         "~/Content/owl.theme.default.min.css",
                         "~/Content/templatemo-style.css",
-                        "~/Content/bootstrap.min.css"    
-                      ));
+                        "~/Content/Site.css"
+                      )) ;
         }
     }
 }

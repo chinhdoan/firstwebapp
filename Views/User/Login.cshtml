@@ -3,45 +3,44 @@
     ViewBag.Title = "Login";
 }
 
-
-<h2>Login</h2>
-
-
 @using (Html.BeginForm("Login", "User", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    <div class="login">
-        <form class="login-form" action="#">
+    <div class="login" style="max-width: 500px;min-width: 400px;margin: 0 auto;">
+        <h1>Login to countinue</h1>
+        <div class="login-form" style=" background-color: white;border: solid 1px rgba(0,0,0,.2);border-radius: 10px; box-shadow: 0 1px 12px rgba(0,0,0,.5);padding: 50px 30px 20px;">
             <div class="input-group input-group-lg">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-user" /></div>
-                <input type="email" class="form-control" id="user-name" placeholder="username" required tabindex="1" />
-            </div>
-            <div class="input-group input-group-lg">
-                <div class="input-group-addon"><span class="glyphicon glyphicon-lock" /></div>
-                <input type="password" class="form-control" id="password" placeholder="Password" required tabindex="2" />
-            </div>
-            <input type="submit" id="login" class="btn btn-primary fa-lg" value="Sign in" tabindex="3" />
-            <div class="login-bar">
-                <input type="checkbox" id="stay-signed-in" tabindex="4" /><label for="stay-signed-in">Keep me signed in</label>
-                <a href="#" class="pull-right">Forgotten your password?</a>
-            </div>
-        </form>
+                <div class="input-group-addon"><span class="fa fa-user" style="font-size:20px" /></div>
+                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
 
-        <div class="social">
-            <div class="social-inner">
-                <a class="fa fa-2x fa fa-users btn btn-danger"></a>
-                <a class="fa fa-2x fa-twitter btn btn-info"></a>
-                <a class="fa fa-2x fa-facebook btn btn-primary"></a>
+            </div>
+            <div class="input-group input-group-lg">
+                <div class="input-group-addon"><span class="fa fa-unlock" style="font-size:16px" /></div>
+                @Html.EditorFor(model => model.pass, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <input type="submit" id="login" class="btn btn-primary fa-lg" style="  width: 100%;margin: 0 auto;margin-top: 20px;text-align: center;height: 55px;" value="Sign in" tabindex="3" />
+            <div class="check-bar" style="margin-top: 10px;">
+                <input type="checkbox" style="margin-right: 5px;" id="stay-signed-in" tabindex="4" /><label for="stay-signed-in">Keep me signed in</label>
+                <a href="#" class="pull-right">Forgotten your password?</a>
             </div>
         </div>
 
-        <div class="register">
-            <div class="register-inner">
-                <a href="#" class="btn btn-success">Create an Account</a>
+        <div class="social" style="margin: 0 auto;padding-top: 10px;text-align: center;">
+            <div class="social-inner">
+                <a class="fa fa-google btn btn-danger" style="font-size:30px;width: 55px;height: 55px;border-radius: 50%;"></a>
+                <a class="fa fa-twitter btn btn-info" style="font-size:30px; width: 55px;height: 55px;border-radius: 50%;"></a>
+                <a class=" fa fa-facebook btn btn-primary" style="font-size:30px; width: 55px;height: 55px;border-radius: 50%;"></a>
+            </div>
+        </div>
+
+        <div class="register" style="margin-top: 20px;padding: 10px;">
+            <div class="register-inner" style=" margin: 0 auto;text-align: center;">
+                <a href="#" class="btn btn-success" style="font-size: 18px;padding: 10px 30px; ">Create an Account</a>
             </div>
         </div>
     </div>
 }
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

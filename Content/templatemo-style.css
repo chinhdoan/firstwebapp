@@ -261,14 +261,15 @@ section {
 
 .custom-navbar {
     background: #ffffff;
-    border-top: 5px solid #29ca8e;
+    border-top: 1px solid #29ca8e;
     border-bottom: 0;
     -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
     padding: 12px 0;
     margin-bottom: 0;
     padding: 0;
+    margin:0 auto;
 }
 
     .custom-navbar .navbar-brand {
@@ -999,3 +1000,4 @@ footer {
         height: inherit;
     }
 }
+

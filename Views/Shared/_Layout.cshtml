@@ -1,18 +1,20 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <meta http-equiv="X-UA-compatible" content="ie=edge" />
-    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
-    <link href="~/Content/login.css" rel="stylesheet" type="text/css" />
+
+    <title>Known - Education HTML Template</title>
+    <!--
+
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
-
+    @Styles.Render("~/Content/css")
 </head>
 <body>
     <header>
@@ -20,7 +22,6 @@
         <section class="preloader">
             <div class="spinner">
                 <span class="spinner-rotate"></span>
-
             </div>
         </section>
 
@@ -37,7 +38,7 @@
                     </button>
 
                     <!-- lOGO TEXT HERE -->
-                    <a href="#" class="navbar-header"><img src="~/images/evncpc.png" alt="Logo" style="width:110px"></a>
+                    <a href="#" class="navbar-header"><img src="~/images/evncpc.png" alt="Logo" style="width:105px"></a>
 
                 </div>
 
@@ -60,9 +61,9 @@
                         }
                         else
                         {
-                            <li style="margin-top:12px;">
-                                <span style="pointer-events:none;text-transform:uppercase;color:mistyrose" class="glyphicon glyphicon-globe">@Html.ActionLink("" + Session["username"], "Index", "Home")</span>
-                            </li>
+                    <li>
+                        <span style="margin-top:15px;pointer-events:none;text-transform:uppercase;color:cornflowerblue;" class="fa fa-user">@Html.ActionLink("" + Session["username"], "Index", "Home")</span>
+                    </li>
                             <li class="login-btn">@Html.ActionLink("Log out", "Logout", "User")</li>
 
                         }
