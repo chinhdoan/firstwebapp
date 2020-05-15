@@ -1,64 +1,55 @@
-﻿
+﻿@model Evncpc.Models.user
+@section css {
+    <link href="@Url.Content("~/Content/register.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layout-masterpage.css")" rel="stylesheet" />
+}
 
 <body>
-    <h2>Đăng ký</h2>
-    @using (Html.BeginForm("Register", "User", FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
-
-
-
-        <div class="wrapper" style="background-image: url('images/bg-registration-form-1.jpg');">
-            <div class="inner">
-                <div class="image-holder">
-                    <img src="images/registration-form-1.jpg" alt="">
-                </div>
-                <form action="">
-                    <h3>Registration Form</h3>
-                    <div class="form-group">
-                        <input type="text" placeholder="First Name" class="form-control">
-                        <input type="text" placeholder="Last Name" class="form-control">
-                    </div>
-                    <div class="form-wrapper">
-                        <input type="text" placeholder="Username" class="form-control">
-                        <i class="zmdi zmdi-account"></i>
-                    </div>
-                    <div class="form-wrapper">
-                        <input type="text" placeholder="Email Address" class="form-control">
-                        <i class="zmdi zmdi-email"></i>
-                    </div>
-                    <div class="form-wrapper">
-                        <select name="" id="" class="form-control">
-                            <option value="" disabled selected>Gender</option>
-                            <option value="male">Male</option>
-                            <option value="femal">Female</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
-                    </div>
-                    <div class="form-wrapper">
-                        <input type="password" placeholder="Password" class="form-control">
-                        <i class="zmdi zmdi-lock"></i>
-                    </div>
-                    <div class="form-wrapper">
-                        <input type="password" placeholder="Confirm Password" class="form-control">
-                        <i class="zmdi zmdi-lock"></i>
-                    </div>
-                    <button>
-                        Register
-                        <i class="zmdi zmdi-arrow-right"></i>
-                    </button>
-                </form>
+    <div class="wrapper" style="background-image: url('~/Images/bg-registration-form-1.jpg');">
+        <div class="inner">
+            <div class="image-holder">
+                <img src="~/Images/registration-form-1.jpg" alt="">
             </div>
+            @using (Html.BeginForm("Register", "User", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <h3>Registration Form</h3>
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" class="form-control">
+                    <input type="text" placeholder="Last Name" class="form-control">
+                </div>
+                <div class="form-wrapper">
+                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
+                    <i class="zmdi zmdi-account"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Email Address" class="form-control">
+                    <i class="zmdi zmdi-email"></i>
+                </div>
+                <div class="form-wrapper">
+                    <select name="" id="" class="form-control">
+                        <option value="" disabled selected>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="femal">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="password" placeholder="Password" class="form-control">
+                    <i class="zmdi zmdi-lock"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="password" placeholder="Confirm Password" class="form-control">
+                    <i class="zmdi zmdi-lock"></i>
+                </div>
+                <button>
+                    <i class="zmdi zmdi-arrow-right"><input type="submit" value="register" /></i>
+                </button>
+            }
         </div>
-
-    }
-</body>
-    <div>
-        @Html.ActionLink("Back to List", "Index")
     </div>
-
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
-</html>
+</body>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

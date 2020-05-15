@@ -14,7 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/css")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/layout_masterpage.css" rel="stylesheet" />
+    @RenderSection("css", false)
 </head>
 <body>
     <header>
@@ -38,7 +41,7 @@
                     </button>
 
                     <!-- lOGO TEXT HERE -->
-                    <a href="#" class="navbar-header"><img src="~/images/evncpc.png" alt="Logo" style="width:105px"></a>
+                    <a href="#" class="navbar-header"><img src="~/images/evncpc.png" alt="Logo" style="margin-left:50px;width:110px"></a>
 
                 </div>
 
