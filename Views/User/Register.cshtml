@@ -1,4 +1,4 @@
-﻿@model Evncpc.Models.user
+﻿@model Evncpc.Models.UserModel
 @section css {
     <link href="@Url.Content("~/Content/register.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Content/layout-masterpage.css")" rel="stylesheet" />
@@ -13,34 +13,28 @@
             @using (Html.BeginForm("Register", "User", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
-                <h3>Registration Form</h3>
+                <h3>Registration Form</h3>        
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    <input type="text" placeholder="First Name" class="form-control">
-                    <input type="text" placeholder="Last Name" class="form-control">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { placeholder = "FirstName", @class = "form-control" } })
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { placeholder = "FirstName", @class = "form-control" } })
                 </div>
                 <div class="form-wrapper">
-                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "UserName", @class = "form-control" } })
                     <i class="zmdi zmdi-account"></i>
                 </div>
+                
                 <div class="form-wrapper">
-                    <input type="text" placeholder="Email Address" class="form-control">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email", @class = "form-control" } })
                     <i class="zmdi zmdi-email"></i>
                 </div>
                 <div class="form-wrapper">
-                    <select name="" id="" class="form-control">
-                        <option value="" disabled selected>Gender</option>
-                        <option value="male">Male</option>
-                        <option value="femal">Female</option>
-                        <option value="other">Other</option>
-                    </select>
-                    <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
-                </div>
-                <div class="form-wrapper">
-                    <input type="password" placeholder="Password" class="form-control">
+                    @Html.EditorFor(model => model.Password , new { htmlAttributes = new { placeholder = "Password", @class="form-control"} })
                     <i class="zmdi zmdi-lock"></i>
                 </div>
                 <div class="form-wrapper">
-                    <input type="password" placeholder="Confirm Password" class="form-control">
+                    @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { placeholder = "ConfirmPassword", @class = "form-control" } })
                     <i class="zmdi zmdi-lock"></i>
                 </div>
                 <button>

@@ -15,11 +15,11 @@
         {
             <div class="input-group input-group-lg">
                 <div class="input-group-addon"><span class="fa fa-lg fa-envelope" /></div>
-                @Html.EditorFor(model => model.username, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
             </div>
             <div class="input-group input-group-lg">
                 <div class="input-group-addon"><span class="fa fa-lg fa-key" /></div>
-                @Html.EditorFor(model => model.pass, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
             </div>
             <input type="submit" id="login" class="btn btn-primary fa-lg" value="Sign in" tabindex="3" />
             <div class="login-bar">

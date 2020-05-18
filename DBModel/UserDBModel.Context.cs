@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Evncpc.Models
+namespace Evncpc.DBModel
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DbModels : DbContext
+    public partial class MyDBEntities : DbContext
     {
-        public DbModels()
-            : base("name=DbModels")
+        public MyDBEntities()
+            : base("name=MyDBEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace Evncpc.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

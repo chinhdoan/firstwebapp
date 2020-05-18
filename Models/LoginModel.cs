@@ -9,12 +9,12 @@ namespace Evncpc.Models
 {
     public class LoginModel
     {
-        [Required(ErrorMessage = "This information is required")]
+        [Required(ErrorMessage = "UserName is required")]
      
-        public  string username{ get; set; }
+        public  string UserName{ get; set; }
         [DataType(DataType.Password)]
       
-        [Required(ErrorMessage = "This information is required")]
-        public string pass{ get; set; }
+        [Required(ErrorMessage = "Password is required")]
+        public string Password{ get; set; }
     }
 }
