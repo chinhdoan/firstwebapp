@@ -16,8 +16,8 @@ namespace Evncpc.Controllers
         // GET: User
         public ActionResult Register(int id = 0)
         {
-            UserModel userModel = new UserModel();
-            return View(userModel);
+
+            return View();
         }
         public ActionResult Login()
         {
@@ -41,6 +41,7 @@ namespace Evncpc.Controllers
                 users.FirstName = userModel.FirstName;
                 users.LastName = userModel.LastName;
                 users.Password = userModel.Password;
+                users.ConfirmPassword = userModel.ConfirmPassword;
                 dbmodel.Users.Add(users);
                 dbmodel.SaveChanges();
                 ModelState.Clear();
