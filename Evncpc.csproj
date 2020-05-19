@@ -167,9 +167,9 @@
     <Content Include="Content\loginmain.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\owl.theme.default.min.css" />
+    <Content Include="Content\registermain.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\templatemo-style.css" />
-    <Content Include="Content\register.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -364,7 +364,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\User\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

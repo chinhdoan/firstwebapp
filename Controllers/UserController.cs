@@ -29,7 +29,7 @@ namespace Evncpc.Controllers
         {
             using (MyDBEntities dbmodel = new MyDBEntities())
             {
-                if (dbmodel.Users.Any(x => x.UserID == userModel.UserID))
+                if (dbmodel.Users.Any(x => x.UserID == userModel.UserID || x.UserName == userModel.UserName || x.Email == userModel.Email))
                 {
                     ViewBag.DuplicateMessage = "Username already exist";
                     return View("Register", userModel);

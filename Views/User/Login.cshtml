@@ -1,6 +1,5 @@
 ﻿@section css {
     <link href="@Url.Content("~/Content/loginmain.css")" rel="stylesheet" />
-    <link href="@Url.Content("~/Content/layout-masterpage.css")" rel="stylesheet" />
 }
 @model Evncpc.Models.LoginModel
 @{
@@ -10,7 +9,6 @@
 
 <body>
     <div class="login">
-
         @using (Html.BeginForm("Login", "User", FormMethod.Post))
         {
             <div class="input-group input-group-lg">
@@ -26,8 +24,6 @@
                 <input type="checkbox" id="stay-signed-in" tabindex="4" /><label for="stay-signed-in">Keep me signed in</label>
             </div>
         }
-
-
         <div class="social-icon">
             <div class="social-inner">
                 <a class="fa fa-2x fa-google btn btn-danger"></a>

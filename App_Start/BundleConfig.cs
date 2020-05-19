@@ -35,7 +35,7 @@ namespace Evncpc
                         "~/Content/templatemo-style.css",
                         "~/Content/Site.css",
                         "~/Content/loginmain.css",
-                        "~/Content/register.css",
+                        "~/Content/registermain.css",
                         "~/Content/layout-masterpage.css"
                       )) ;
         }
