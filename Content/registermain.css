@@ -9,19 +9,26 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-.register {
-    font-family: "Poppins-Regular";
-    color: #333;
-    font-size: 13px;
-    margin: 0;
-}
+body {
+  font-family: "Poppins-Regular";
+  color: #333;
+  font-size: 13px;
+  margin: 0; }
 
-p, h1, h2, h3, h4, h5, h6{
+input, textarea, select, button {
+  font-family: "Poppins-Regular";
+  color: #333;
+  font-size: 13px; }
+
+p, h1, h2, h3, h4, h5, h6, ul {
   margin: 0; }
 
 img {
   max-width: 100%; }
 
+ul {
+  padding-left: 0;
+  margin-bottom: 0; }
 
 a:hover {
   text-decoration: none; }
@@ -30,24 +37,24 @@ a:hover {
   outline: none; }
 
 .wrapper {
-  background-image:url('/Images/bg-registration-form-1.jpg');
+  background-image:url("/Images/bg-registration-form-1.jpg");
   min-height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   align-items: center; }
+
 .inner {
-    padding: 20px;
-    background: #fff;
-    max-width: 850px;
-    margin: auto;
-    display: flex;
-}
+  padding:20px;
+  background: #fff;
+  max-width: 850px;
+  margin: auto;
+  display: flex; }
   .inner .image-holder {
     width: 50%; }
   .inner form {
-    width: 50%;
-    padding-top: 36px;
+    width: 100%;
+    padding-top: 0px;
     padding-left: 45px;
     padding-right: 45px; }
   .inner h3 {
@@ -55,33 +62,22 @@ a:hover {
     font-size: 25px;
     font-family: "Poppins-SemiBold";
     text-align: center;
-    margin-bottom: 28px; 
+    margin-bottom: 28px; }
 
-  }
+.form-group-register  {
+    display: flex;
+    margin:0px;
+ 
+}
+    .form-group-register input {
+        width: 50%;
+        padding-left: 20px;
+    }
+        .form-group-register input:first-child {
+            margin-right: 25px;
+        }
 
-.user {
-    
-}
 
-.form-control {
-    width: 500px;
-    height: 30px;
-    margin-top:20px;
-    
-}
-.create {
-    border: none;
-    width: 164px;
-    height: 51px;
-    margin-top: 40px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    background: #333;
-    font-size: 15px;
-    color: #fff;
-}
 .form-wrapper {
   position: relative; }
   .form-wrapper i {
@@ -89,15 +85,69 @@ a:hover {
     bottom: 9px;
     right: 0; }
 
+.form-control {
+  border: 1px solid #e1e1e1;
+  display: block;
+  width:100%;
+  padding-left:20px;
+  height:40px;
+  margin-bottom: 17px; }
+  .form-control::-webkit-input-placeholder {
+    font-size: 14px;
+    color: #868686;
+    font-family: "Poppins-Regular"; }
+  .form-control::-moz-placeholder {
+    font-size: 13px;
+    color: #333;
+    font-family: "Poppins-Regular"; }
+  .form-control:-ms-input-placeholder {
+    font-size: 13px;
+    color: #333;
+    font-family: "Poppins-Regular"; }
+  .form-control:-moz-placeholder {
+    font-size: 13px;
+    color: #333;
+    font-family: "Poppins-Regular"; }
+.warning-message {
+    display: flex;
+    position:relative;
+    margin: 0 auto;
+}
+    .control-message {
+        width: 100%;
+        padding-left: 20px;
+        color:red;
+    }
 
+}
 select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  cursor: pointer;
-  padding-left: 20px; }
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-left: 20px;
+}
   select option[value=""][disabled] {
     display: none; }
 
+.create {
+  border: none;
+  width: 164px;
+  height: 51px;
+  margin-top: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #333;
+  font-size: 15px;
+  color: #fff;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s; }
+  
 
 @-webkit-keyframes hvr-icon-wobble-horizontal {
   16.65% {
@@ -144,27 +194,17 @@ select {
   .inner form {
     padding-top: 10px;
     padding-left: 30px;
-    padding-right: 30px; }
-  .form-control{
-      align-content:center;
-  }
-}
+    padding-right: 30px; } }
 @media (max-width: 767px) {
   .inner {
     display: block; }
     .inner .image-holder {
       width: 100%; }
     .inner form {
-        width: 100%;
-   
-        padding-left:50px;
-        padding-top:50px;
-    }
-    .form-control {
-        height:40px;
-        margin-top:30px;
-    }
+      width: 100%;
+      padding: 40px 0 30px; }
+
   .create {
-    margin-top: 60px; } }
+    margin-top: 40px; } }
 
 /*# sourceMappingURL=style.css.map */

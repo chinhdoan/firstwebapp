@@ -29,9 +29,9 @@ namespace Evncpc.Controllers
         {
             using (MyDBEntities dbmodel = new MyDBEntities())
             {
-                if (dbmodel.Users.Any(x => x.UserID == userModel.UserID || x.UserName == userModel.UserName || x.Email == userModel.Email))
+                if (dbmodel.Users.Any(x => x.UserName == userModel.UserName || x.Email == userModel.Email))
                 {
-                    ViewBag.DuplicateMessage = "Username already exist";
+                    ViewBag.Message = "Username already exist";
                     return View("Register", userModel);
                 }
                 User users = new User();
@@ -44,8 +44,8 @@ namespace Evncpc.Controllers
                 users.ConfirmPassword = userModel.ConfirmPassword;
                 dbmodel.Users.Add(users);
                 dbmodel.SaveChanges();
+                ViewBag.RegisterMessage = "Registion successfull";
                 ModelState.Clear();
-                ViewBag.SuccessMessage = "Registion successfull";
                 return View("Register");
             }
            
@@ -59,14 +59,14 @@ namespace Evncpc.Controllers
                 var check = dbmodel.Users.Where(m => m.UserName == objloginModel.UserName && m.Password == objloginModel.Password).FirstOrDefault();
                 if (check == null)
                 {
-                    ViewBag.SuccessMessage = "Login failed";
+                    ViewBag.Message = "Login failed";
                     ModelState.AddModelError("Error", "username and pass does not matching");
                     return View();
                 }
                 else
                 {
                     Session["username"] = check.UserName;
-                    ViewBag.SuccessMessage = "Login successfull";
+                    ViewBag.Message  = "Login successfull";
                     return RedirectToAction("Index", "Home");
                 }    
             }

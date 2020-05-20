@@ -25,6 +25,7 @@ namespace Evncpc.DBModel
         public String UserName { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Email is required")]
+        [DataType(DataType.EmailAddress)]
         public String Email { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Password is required")]

@@ -33,10 +33,9 @@ namespace Evncpc
                         "~/Content/owl.carousel.css",
                         "~/Content/owl.theme.default.min.css",
                         "~/Content/templatemo-style.css",
-                        "~/Content/Site.css",
+                        "~/Content/layout-masterpage.css",
                         "~/Content/loginmain.css",
-                        "~/Content/registermain.css",
-                        "~/Content/layout-masterpage.css"
+                        "~/Content/registermain.css"
                       )) ;
         }
     }
