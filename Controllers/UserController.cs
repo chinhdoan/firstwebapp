@@ -7,12 +7,18 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using User = Evncpc.DBModel.User;
 
 namespace Evncpc.Controllers
 {
     public class UserController : Controller
     {
+        private bool userAutherised;
+        private bool rememberMe;
+
+        public string UserID { get; private set; }
+
         // GET: User
         public ActionResult Register(int id = 0)
         {
@@ -51,9 +57,14 @@ namespace Evncpc.Controllers
            
         }
 
+
+
+
         [HttpPost]
         public ActionResult Login(LoginModel objloginModel)
         {
+
+
             using (MyDBEntities dbmodel = new MyDBEntities())
             {
                 var check = dbmodel.Users.Where(m => m.UserName == objloginModel.UserName && m.Password == objloginModel.Password).FirstOrDefault();
@@ -66,9 +77,9 @@ namespace Evncpc.Controllers
                 else
                 {
                     Session["username"] = check.UserName;
-                    ViewBag.Message  = "Login successfull";
+                    ViewBag.Message = "Login successfull";
                     return RedirectToAction("Index", "Home");
-                }    
+                }
             }
         }
         public ActionResult Logout()

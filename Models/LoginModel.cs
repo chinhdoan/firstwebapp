@@ -9,6 +9,7 @@ namespace Evncpc.Models
 {
     public class LoginModel
     {
+       
         [Required(ErrorMessage = "UserName is required")]
      
         public  string UserName{ get; set; }

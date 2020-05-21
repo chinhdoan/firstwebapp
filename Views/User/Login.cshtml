@@ -9,8 +9,14 @@
 
 <body>
     <div class="login">
+
         @using (Html.BeginForm("Login", "User", FormMethod.Post))
         {
+            <div class="textlogo">
+                <span class="text-introduce">Tập Đoàn Điện Lực Miền Trung</span>
+            </div>
+            <h1>Đăng nhập</h1>
+            <span class="text-introduce">để tiếp tục</span>
             <div class="input-group input-group-lg">
                 <div class="input-group-addon"><span class="fa fa-lg fa-envelope" /></div>
                 @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
@@ -20,24 +26,16 @@
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
             </div>
             <input type="submit" id="login" class="btn btn-primary fa-lg" value="Sign in" tabindex="3" />
-            <div class="login-bar">
-                <input type="checkbox" id="stay-signed-in" tabindex="4" /><label for="stay-signed-in">Keep me signed in</label>
-            </div>
         }
-        <div class="social-icon">
-            <div class="social-inner">
-                <a class="fa fa-2x fa-google btn btn-danger"></a>
-                <a class="fa fa-2x fa-twitter btn btn-info"></a>
-                <a class="fa fa-2x fa-facebook btn btn-primary"></a>
-            </div>
-        </div>
+
 
         <div class="register">
             <div class="register-inner">
-                <a href=@Url.Action("Register","User") class="btn btn-success">Create an Account</a>
+                <a href=@Url.Action("Register","User") ">Create an Account</a>
+                <a href="#">Forgotten your password?</a>
             </div>
         </div>
-        <a href="#">Forgotten your password?</a>
+       
     </div>
 </body>
 
