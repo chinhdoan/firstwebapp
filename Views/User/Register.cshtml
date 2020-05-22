@@ -13,64 +13,70 @@
         <div class="wrapper">
             <div class="inner">
                 <div class="image-holder">
+                    <div class="error-message">
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="alert alert-info">
+                                @ViewBag.Message
+                            </div>
+
+                        }
+                    </div>
                     <img src="~/Images/account-bg.png" alt="">
                 </div>
+
                 @Html.ValidationSummary(true, "", new { @class = "text text-danger" })
 
-            <div class="user">
-                @if (ViewBag.Message != null)
-                {
-                    <div class="alert alert-info">
-                        @ViewBag.Message
-                    </div>
+                <div class="user">
+                    @using (Html.BeginForm("Register", "User", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="textlogo">
+                            <span class="text-introduce">Tập Đoàn Điện Lực Miền Trung</span>
+                        </div>
+                        <h1>Đăng kí</h1>
+                        <span class="text-continue">để tiếp tục</span>
+                        <div class="warning-message">
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "control-message" })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "control-message" })
+                        </div>
+                        <div class="form-group-register">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { placeholder = "First Name", @class = "form-control" } })
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { placeholder = "Last Name", @class = "form-control" } })
+                        </div>
 
-                }
-                @using (Html.BeginForm("Register", "User", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()                
-                    <h3>Đăng kí</h3>
-                    <span class="text-introduce">để tiếp tục</span>
-                    <div class="warning-message">
-                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "control-message" })
-                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "control-message" })
-                    </div>
-                    <div class="form-group-register">
-                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { placeholder = "First Name", @class = "form-control" } })
-                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { placeholder = "Last Name", @class = "form-control" } })
-                    </div>
+                        <div class="warning-message">
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "control-message" })
+                        </div>
+                        <div class="userinput">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
 
-                    <div class="warning-message">
-                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "control-message" })
-                    </div>
-                    <div class="userinput">
-                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
+                        </div>
+                        <div class="warning-message">
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "control-message" })
+                        </div>
+                        <div class="userinput">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email", @class = "form-control" } })
 
-                    </div>
-                    <div class="warning-message">
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "control-message" })
-                    </div>
-                    <div class="userinput">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email", @class = "form-control" } })
+                        </div>
+                        <div class="warning-message">
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "control-message" })
+                        </div>
+                        <div class="userinput">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
 
-                    </div>
-                    <div class="warning-message">
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "control-message" })
-                    </div>
-                    <div class="userinput">
-                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
+                        </div>
+                        <div class="warning-message">
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "control-message" })
+                        </div>
+                        <div class="userinput">
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { placeholder = "Confirm", @class = "form-control" } })
 
-                    </div>
-                    <div class="warning-message">
-                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "control-message" })
-                    </div>
-                    <div class="userinput">
-                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { placeholder = "Confirm", @class = "form-control" } })
+                        </div>
+                        <input type="submit" class="create fa-arrow-alt-circle-right center-block btn-lg " value="Create" />
 
-                    </div>
-                    <input type="submit" class="create fa-arrow-alt-circle-right center-block btn-lg " value="submit" />
-
-                }
-            </div>
+                    }
+                </div>
             </div>
         </div>
     </div>

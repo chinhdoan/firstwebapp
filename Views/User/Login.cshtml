@@ -9,33 +9,46 @@
 
 <body>
     <div class="login">
+        <div class="error-message">
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-info">
+                    @ViewBag.Message
+                </div>
+            }
+        </div>
+        <div class="login-form">
+            @using (Html.BeginForm("Login", "User", FormMethod.Post))
+            {
+                <div class="textlogo">
+                    <span class="text-introduce">Tập Đoàn Điện Lực Miền Trung</span>
+                </div>
+                <h1>Đăng nhập</h1>
+                <span class="text-introduce">để tiếp tục</span>
+                <div class="warning-message">
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "control-message" })
+                </div>
+                <div class="input-group input-group-lg">
+                    <div class="input-group-addon"><span class="fa fa-lg fa-user" /></div>
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
+                </div>
+                <div class="warning-message">
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "control-message" })
+                </div>
+                <div class="input-group input-group-lg">
+                    <div class="input-group-addon"><span class="fa fa-lg fa-key" /></div>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
+                </div>
+                <input type="submit" id="login" class="btn btn-primary fa-lg" value="Sign in" tabindex="3" />
+            }
 
-        @using (Html.BeginForm("Login", "User", FormMethod.Post))
-        {
-            <div class="textlogo">
-                <span class="text-introduce">Tập Đoàn Điện Lực Miền Trung</span>
-            </div>
-            <h1>Đăng nhập</h1>
-            <span class="text-introduce">để tiếp tục</span>
-            <div class="input-group input-group-lg">
-                <div class="input-group-addon"><span class="fa fa-lg fa-envelope" /></div>
-                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
-            </div>
-            <div class="input-group input-group-lg">
-                <div class="input-group-addon"><span class="fa fa-lg fa-key" /></div>
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
-            </div>
-            <input type="submit" id="login" class="btn btn-primary fa-lg" value="Sign in" tabindex="3" />
-        }
-
-
+        </div>
         <div class="register">
             <div class="register-inner">
                 <a href=@Url.Action("Register","User") ">Create an Account</a>
                 <a href="#">Forgotten your password?</a>
             </div>
         </div>
-       
     </div>
 </body>
 
