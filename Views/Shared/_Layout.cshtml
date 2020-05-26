@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title>Known - Education HTML Template</title>
+    <title>EVNCPC</title>
     <!--
 
     -->
@@ -32,7 +32,6 @@
         <!-- MENU -->
         <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
             <div class="container">
-
                 <div class="navbar-header">
                     <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon icon-bar"></span>
@@ -47,37 +46,37 @@
 
                 <!-- MENU LINKS -->
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-nav-first">
-                        <li><a href="@Url.Action("Index","Home")" class="smoothScroll">Home</a></li>
-                        <li><a href="#about" class="smoothScroll">About</a></li>
-                        <li><a href="#team" class="smoothScroll">Our Teachers</a></li>
-                        <li><a href="#courses" class="smoothScroll">Courses</a></li>
-                        <li><a href="#testimonial" class="smoothScroll">Reviews</a></li>
-                        <li><a href="#contact" class="smoothScroll">Contact</a></li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        @if (Session["username"] == null)
-                        {
+                    @if (Session["username"] == null)
+                    {
+                        <ul class="nav navbar-nav navbar-right">
                             <li class="signup-btn">@Html.ActionLink("Register", "Register", "User")</li>
                             <li class="signin-btn">@Html.ActionLink("Log-in", "Login", "User")</li>
-                        }
-                        else
-                        {
-                    <li>
-                        <span style="margin-top:15px;pointer-events:none;text-transform:uppercase;color:cornflowerblue;" class="fa fa-user">@Html.ActionLink("" + Session["username"], "Index", "Home")</span>
-                    </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav navbar-nav-first">
+                            <li><a href="@Url.Action("Index","Home")" class="smoothScroll">Home</a></li>
+                            <li><a href="#about" class="smoothScroll">About</a></li>
+                            <li><a href="#team" class="smoothScroll">Our Teachers</a></li>
+                            <li><a href="#courses" class="smoothScroll">Courses</a></li>
+                            <li><a href="#testimonial" class="smoothScroll">Reviews</a></li>
+                            <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <span style="margin-top:15px;pointer-events:none;text-transform:uppercase;color:cornflowerblue;" class="fa fa-user">@Html.ActionLink("" + Session["username"], "Index", "Home")</span>
+                            </li>
                             <li class="login-btn">@Html.ActionLink("Log out", "Logout", "User")</li>
-
-                        }
-                    </ul>
+                        </ul>
+                    }
                 </div>
-
             </div>
         </section>
     </header>
-    <div class="container body-content">
+    <div class="container body-content">        
         @RenderBody()
+       
         <hr />
         <!-- FOOTER -->
         <footer id="footer">
@@ -144,7 +143,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </footer>

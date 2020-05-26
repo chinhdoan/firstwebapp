@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bills">
+    <Key>
+      <PropertyRef Name="bill_id" />
+    </Key>
+    <Property Name="bill_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="payment" Type="varchar" MaxLength="50" />
+    <Property Name="duration" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="bit" />
+    <Property Name="created_on" Type="datetime" />
+    <Property Name="user_id" Type="int" />
+  </EntityType>
+  <EntityType Name="mainmenus">
+    <Key>
+      <PropertyRef Name="mainmenu_id" />
+    </Key>
+    <Property Name="mainmenu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="menu" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="role" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="submenus">
+    <Key>
+      <PropertyRef Name="submenu_id" />
+    </Key>
+    <Property Name="submenu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sub_menu" Type="varchar" MaxLength="50" />
+    <Property Name="controller" Type="varchar" MaxLength="50" />
+    <Property Name="action" Type="varchar" MaxLength="50" />
+    <Property Name="mainmenu_id" Type="int" />
+    <Property Name="role_id" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="varchar" MaxLength="50" />
+    <Property Name="last_name" Type="varchar" MaxLength="50" />
+    <Property Name="user_name" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="created_on" Type="datetime" />
+    <Property Name="role_id" Type="int" />
+  </EntityType>
+  <Association Name="FK__bills__user_id__182C9B23">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="bills" Type="Self.bills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="bills">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__roles__user_id__15502E78">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="roles" Type="Self.roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="roles">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__submenus__mainme__1CF15040">
+    <End Role="mainmenus" Type="Self.mainmenus" Multiplicity="0..1" />
+    <End Role="submenus" Type="Self.submenus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mainmenus">
+        <PropertyRef Name="mainmenu_id" />
+      </Principal>
+      <Dependent Role="submenus">
+        <PropertyRef Name="mainmenu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__submenus__role_i__1DE57479">
+    <End Role="roles" Type="Self.roles" Multiplicity="0..1" />
+    <End Role="submenus" Type="Self.submenus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="submenus">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_users_roles">
+    <End Role="roles" Type="Self.roles" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="webdbModelStoreContainer">
+    <EntitySet Name="bills" EntityType="Self.bills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mainmenus" EntityType="Self.mainmenus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="submenus" EntityType="Self.submenus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__bills__user_id__182C9B23" Association="Self.FK__bills__user_id__182C9B23">
+      <End Role="users" EntitySet="users" />
+      <End Role="bills" EntitySet="bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__roles__user_id__15502E78" Association="Self.FK__roles__user_id__15502E78">
+      <End Role="users" EntitySet="users" />
+      <End Role="roles" EntitySet="roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__submenus__mainme__1CF15040" Association="Self.FK__submenus__mainme__1CF15040">
+      <End Role="mainmenus" EntitySet="mainmenus" />
+      <End Role="submenus" EntitySet="submenus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__submenus__role_i__1DE57479" Association="Self.FK__submenus__role_i__1DE57479">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="submenus" EntitySet="submenus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_users_roles" Association="Self.FK_users_roles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

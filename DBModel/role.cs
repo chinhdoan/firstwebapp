@@ -12,30 +12,23 @@ namespace Evncpc.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public user()
+        public role()
         {
-            this.bills = new HashSet<bill>();
-            this.roles = new HashSet<role>();
+            this.submenus = new HashSet<submenu>();
+            this.users = new HashSet<user>();
         }
     
-        public int user_id { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public string user_name { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
-
-        public string confirm_password { get; set; }
-        public Nullable<System.DateTime> created_on { get; set; }
-        public Nullable<int> role_id { get; set; }
+        public int role_id { get; set; }
+        public Nullable<int> user_id { get; set; }
+        public string role1 { get; set; }
     
+        public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<bill> bills { get; set; }
+        public virtual ICollection<submenu> submenus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<role> roles { get; set; }
-        public virtual role role { get; set; }
+        public virtual ICollection<user> users { get; set; }
     }
 }

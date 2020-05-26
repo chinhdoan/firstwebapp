@@ -8,24 +8,24 @@ namespace Evncpc.Models
 {
     public class UserModel
     {
-        public int UserID { get; set; }
+        public int user_id { get; set; }
         [Required(AllowEmptyStrings =false, ErrorMessage ="First Name is required")]
-        public String FirstName { get; set; }
+        public String first_name { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Last Name is required")]
-        public String LastName { get; set; }
+        public String last_name { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "UserName is required")]
-        public String UserName { get; set; }
+        public String user_name { get; set; }
         [DataType(DataType.EmailAddress)]
         [Required(AllowEmptyStrings = false ,ErrorMessage = "Email is required")]
-        public String Email { get; set; }
+        public String email { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
-        public String Password { get; set; }
+        public String password { get; set; }
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage ="Thoes passwords didn't match.Try again.")]
-        public String ConfirmPassword { get; set; }
-        public DateTime CreatedOn { get; set; }
+        public String confirm_password { get; set; }
+        public DateTime created_on { get; set; }
     }
 }

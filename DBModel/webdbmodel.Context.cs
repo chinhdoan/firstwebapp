@@ -13,10 +13,10 @@ namespace Evncpc.DBModel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MyDBEntities : DbContext
+    public partial class webdbEntities : DbContext
     {
-        public MyDBEntities()
-            : base("name=MyDBEntities")
+        public webdbEntities()
+            : base("name=webdbEntities")
         {
         }
     
@@ -25,6 +25,11 @@ namespace Evncpc.DBModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<bill> bills { get; set; }
+        public virtual DbSet<mainmenu> mainmenus { get; set; }
+        public virtual DbSet<role> roles { get; set; }
+        public virtual DbSet<submenu> submenus { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<user> users { get; set; }
     }
 }

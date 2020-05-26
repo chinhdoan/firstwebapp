@@ -129,30 +129,48 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="DBModel\bill.cs">
+      <DependentUpon>webdbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\mainmenu.cs">
+      <DependentUpon>webdbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\role.cs">
+      <DependentUpon>webdbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\submenu.cs">
+      <DependentUpon>webdbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\sysdiagram.cs">
+      <DependentUpon>webdbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\user.cs">
+      <DependentUpon>webdbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\webdbmodel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>webdbmodel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\webdbmodel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>webdbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\webdbmodel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>webdbmodel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="DBModel\User.cs">
-      <DependentUpon>UserDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\UserDBModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserDBModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\UserDBModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserDBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\UserDBModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserDBModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -168,7 +186,18 @@
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\owl.theme.default.min.css" />
     <Content Include="Content\registermain.css" />
+    <Content Include="Content\searchresult.css" />
     <Content Include="Content\templatemo-style.css" />
+    <Content Include="DBModel\webdbmodel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>webdbmodel.edmx</DependentUpon>
+      <LastGenOutput>webdbmodel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DBModel\webdbmodel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>webdbmodel.edmx</DependentUpon>
+      <LastGenOutput>webdbmodel.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -228,16 +257,6 @@
     <Content Include="lib\font-awesome\webfonts\fa-brands-400.svg" />
     <Content Include="lib\font-awesome\webfonts\fa-regular-400.svg" />
     <Content Include="lib\font-awesome\webfonts\fa-solid-900.svg" />
-    <Content Include="DBModel\UserDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UserDBModel.edmx</DependentUpon>
-      <LastGenOutput>UserDBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DBModel\UserDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UserDBModel.edmx</DependentUpon>
-      <LastGenOutput>UserDBModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="libman.json" />
@@ -327,12 +346,12 @@
     <Content Include="fonts\poppins\Poppins-Thin.ttf" />
     <Content Include="fonts\poppins\Poppins-ThinItalic.ttf" />
     <Content Include="Images\icons\Thumbs.db" />
-    <EntityDeploy Include="DBModel\UserDBModel.edmx">
+    <EntityDeploy Include="DBModel\webdbmodel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UserDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>webdbmodel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DBModel\UserDBModel.edmx.diagram">
-      <DependentUpon>UserDBModel.edmx</DependentUpon>
+    <Content Include="DBModel\webdbmodel.edmx.diagram">
+      <DependentUpon>webdbmodel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\custom.js" />
@@ -349,6 +368,7 @@
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\search.js" />
     <Content Include="Scripts\smoothscroll.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -367,6 +387,8 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\View.cshtml" />
+    <Content Include="Views\User\SearchResult.cshtml" />
+    <Content Include="Views\Admin\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

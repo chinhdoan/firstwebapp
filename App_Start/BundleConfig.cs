@@ -17,7 +17,8 @@ namespace Evncpc
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                        "~/Scripts/modernizr-*"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Scripts/custom.js",
@@ -25,7 +26,7 @@ namespace Evncpc
                         "~/ Scripts /smoothscroll.js",
                         "~/ Scripts /owl/.carousel.min.js",
                          "~/Scripts/bootstrap.min.js",
-                         "~/Scripts/login.js"));
+                         "~/Scripts/search.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.min.css",
@@ -35,8 +36,12 @@ namespace Evncpc
                         "~/Content/templatemo-style.css",
                         "~/Content/layout-masterpage.css",
                         "~/Content/loginmain.css",
-                        "~/Content/registermain.css"
+                        "~/Content/registermain.css",
+                         "~/Content/searchresult.css"
                       )) ;
+            bundles.Add(new ScriptBundle("~/bundles/jscustom").Include(
+                        "~/Scripts/search.js"
+                ));
         }
     }
 }

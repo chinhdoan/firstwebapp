@@ -1,6 +1,4 @@
-﻿
-
-@model Evncpc.Models.UserModel
+﻿@model Evncpc.Models.UserModel
 
 @{
     ViewBag.title = "Register";
@@ -37,40 +35,40 @@
                         <h1>Đăng kí</h1>
                         <span class="text-continue">để tiếp tục</span>
                         <div class="warning-message">
-                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "control-message" })
-                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "control-message" })
+                            @Html.ValidationMessageFor(model => model.first_name, "", new { @class = "control-message" })
+                            @Html.ValidationMessageFor(model => model.last_name, "", new { @class = "control-message" })
                         </div>
                         <div class="form-group-register">
-                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { placeholder = "First Name", @class = "form-control" } })
-                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { placeholder = "Last Name", @class = "form-control" } })
+                            @Html.EditorFor(model => model.first_name, new { htmlAttributes = new { placeholder = "First Name", @class = "form-control" } })
+                            @Html.EditorFor(model => model.last_name, new { htmlAttributes = new { placeholder = "Last Name", @class = "form-control" } })
                         </div>
 
                         <div class="warning-message">
-                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "control-message" })
+                            @Html.ValidationMessageFor(model => model.user_name, "", new { @class = "control-message" })
                         </div>
                         <div class="userinput">
-                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
+                            @Html.EditorFor(model => model.user_name, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
 
                         </div>
                         <div class="warning-message">
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "control-message" })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "control-message" })
                         </div>
                         <div class="userinput">
-                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email", @class = "form-control" } })
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { placeholder = "Email", @class = "form-control" } })
 
                         </div>
                         <div class="warning-message">
-                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "control-message" })
+                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "control-message" })
                         </div>
                         <div class="userinput">
-                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
+                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
 
                         </div>
                         <div class="warning-message">
-                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "control-message" })
+                            @Html.ValidationMessageFor(model => model.confirm_password, "", new { @class = "control-message" })
                         </div>
                         <div class="userinput">
-                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { placeholder = "Confirm", @class = "form-control" } })
+                            @Html.EditorFor(model => model.confirm_password, new { htmlAttributes = new { placeholder = "Confirm", @class = "form-control" } })
 
                         </div>
                         <input type="submit" class="create fa-arrow-alt-circle-right center-block btn-lg " value="Create" />
