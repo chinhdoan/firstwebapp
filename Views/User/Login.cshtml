@@ -26,18 +26,18 @@
                 <h1>Đăng nhập</h1>
                 <span class="text-introduce">để tiếp tục</span>
                 <div class="warning-message">
-                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "control-message" })
+                    @Html.ValidationMessageFor(model => model.user_name, "", new { @class = "control-message" })
                 </div>
                 <div class="input-group input-group-lg">
                     <div class="input-group-addon"><span class="fa fa-lg fa-user" /></div>
-                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
+                    @Html.EditorFor(model => model.user_name, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
                 </div>
                 <div class="warning-message">
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "control-message" })
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "control-message" })
                 </div>
                 <div class="input-group input-group-lg">
                     <div class="input-group-addon"><span class="fa fa-lg fa-key" /></div>
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
+                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
                 </div>
                 <input type="submit" id="login" class="btn btn-primary fa-lg" value="Sign in" tabindex="3" />
             }

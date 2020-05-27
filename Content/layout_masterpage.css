@@ -428,6 +428,10 @@ footer {
     font-size: 12px;
     margin-top: 20px;
 }
+img {
+    margin-right: 60px;
+    width: 110px;
+}
 
 
 
@@ -512,7 +516,10 @@ footer {
     h1 {
         font-size: 2.5em;
     }
-
+    img{
+        margin-left:60px;
+        margin-right:0px;
+    }
     h1, h2, h3 {
         line-height: normal;
     }
@@ -529,6 +536,7 @@ footer {
         .custom-navbar .navbar-brand,
         .custom-navbar .nav li a {
             line-height: normal;
+          
         }
 
         .custom-navbar .nav li a {
@@ -548,6 +556,7 @@ footer {
 
         .custom-navbar .navbar-nav.navbar-right li {
             display: inline-block;
+            margin-right:20px;
         }
 
     .footer-info {

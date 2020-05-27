@@ -11,11 +11,11 @@ using System.Web.Security;
 
 namespace Evncpc.Controllers
 {
-    public class RegisterController : Controller
+    public class UserController : Controller
     {
 
         // GET: User
-        [HandleError]
+        
         public ActionResult Register(int id = 0)
         {
 
@@ -57,6 +57,37 @@ namespace Evncpc.Controllers
                 }
             }  
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(LoginModel objloginModel)
+        {
+            using (webdbEntities dbmodel = new webdbEntities())
+            {
+                var check = dbmodel.users.Where(m => m.user_name == objloginModel.user_name && m.password == objloginModel.password).FirstOrDefault();
+                if (check == null)
+                {
+                    ViewBag.Message = "Login failed";
+                    ModelState.AddModelError("Error", "username and pass does not matching");
+                    return View();
+                }
+                else
+                {
+                    Session["username"] = check.user_name;
+                    ViewBag.Message = "Login successfull";
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+        }
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "home");
+        }
+
     }
 }
     
